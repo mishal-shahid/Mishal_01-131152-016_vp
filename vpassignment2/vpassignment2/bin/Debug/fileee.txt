@@ -1,0 +1,11 @@
+sana 002 5th bsse bahria 3.92 present
+sanam 001 5th bsse bahria 3.91 present
+diyaar 008 5th bsse bahria 3.12 present
+
+sid 004 6th bsse bahria 3.96 absent
+diya 006 5th bsce bahria 3.58 absent
+sidra 007 6th bsce bahria 3.32 absent
+hamza 009 2nd bse bahria 3.75 absent
+
+
+
