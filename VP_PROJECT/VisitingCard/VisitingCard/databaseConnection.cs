@@ -30,6 +30,18 @@ namespace VisitingCard
                 val = true;
             return val;
         }
+        public bool readdata(int id)
+        {
+            bool val = false;
+            MySqlCommand cmd = new MySqlCommand(@"SELECT * FROM signup WHERE useid =@id", connectstr);
+            cmd.Parameters.AddWithValue(@"id", id);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            if (dr.HasRows)
+                val = true;
+            dr.Dispose();
+            return val;
+
+        }
         public bool insertdata(int id, string name, string email, string contact, string password)
         {
             bool val = false;
