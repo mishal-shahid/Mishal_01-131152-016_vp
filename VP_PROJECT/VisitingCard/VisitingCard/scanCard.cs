@@ -69,7 +69,9 @@ namespace VisitingCard
 
         private void button2_Click(object sender, EventArgs e)
         {
+            pictureBox2.Image=(Bitmap)pictureBox1.Image.Clone();
             pictureBox2.Image.Save(@"D:/VC.bmp");
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
