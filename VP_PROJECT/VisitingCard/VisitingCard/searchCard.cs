@@ -19,7 +19,7 @@ namespace VisitingCard
 
         private void searchCard_Load(object sender, EventArgs e)
         {
-
+            dataGridView1.AllowUserToAddRows = true;
         }
     }
 }

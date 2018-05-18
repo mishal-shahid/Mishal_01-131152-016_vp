@@ -90,6 +90,14 @@ namespace VisitingCard
              databaseConnection db = new databaseConnection();
              db.readdata(23);
         }
+        public byte[] imageToByte(Image img)
+        {
+            using (var ms = new MemoryStream())
+            {
+                img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                return ms.ToArray();
+            }
+        }
        
 
         private void button4_Click(object sender, EventArgs e)
