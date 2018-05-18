@@ -87,7 +87,10 @@ namespace VisitingCard
             {
                 textBox3.Text = textBox1.SelectedText;
             }
+             databaseConnection db = new databaseConnection();
+             db.readdata(23);
         }
+       
 
         private void button4_Click(object sender, EventArgs e)
         {

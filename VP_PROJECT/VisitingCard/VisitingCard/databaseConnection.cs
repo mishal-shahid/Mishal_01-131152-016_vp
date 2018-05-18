@@ -42,6 +42,24 @@ namespace VisitingCard
             return val;
 
         }
+        public void read(string query, int id, string name, DataGridView dg)
+        {
+            //con.Open();
+            string command = query;
+            MySqlCommand cmd = new MySqlCommand(@command, connectstr);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@name", name);
+            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            dg.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dg.RowTemplate.Height = 120;
+            da.Fill(dt);
+            dg.DataSource = dt;
+            DataGridViewImageColumn imgcol = new DataGridViewImageColumn();
+            imgcol = (DataGridViewImageColumn)dg.Columns[4];
+            imgcol.ImageLayout = DataGridViewImageCellLayout.Stretch;
+        }
         public bool insertdata(int id, string name, string email, string contact, string password)
         {
             bool val = false;
