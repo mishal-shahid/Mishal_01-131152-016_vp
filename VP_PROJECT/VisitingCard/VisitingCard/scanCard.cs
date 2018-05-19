@@ -44,15 +44,24 @@ namespace VisitingCard
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //pictureBox1.Hide();
             pictureBox2.Image = (Bitmap)pictureBox1.Image.Clone();
             var img = new Bitmap(pictureBox2.Image);
             pictureBox1.Hide();
+            comboBox1.Hide();
+            button1.Hide();
+            device.Stop();
             pictureBox2.Show();
-            using (var ocr = new TesseractEngine(@"C:\Users\GMC\Desktop\tesseract-ocr-3.02.eng\tesseract-ocr\tessdata", "eng", EngineMode.TesseractAndCube))
+            try
             {
-                var page = ocr.Process(img);
-                textBox1.Text = page.GetText();
+                using (var ocr = new TesseractEngine(@"C:\Users\GMC\Desktop\tesseract-ocr-3.02.eng\tesseract-ocr\tessdata", "eng", EngineMode.TesseractAndCube))
+                {
+                    var page = ocr.Process(img);
+                    textBox1.Text = page.GetText();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
