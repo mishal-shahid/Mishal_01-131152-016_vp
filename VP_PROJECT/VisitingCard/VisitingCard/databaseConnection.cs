@@ -42,6 +42,27 @@ namespace VisitingCard
             return val;
 
         }
+        public void insert(int id, string name, string contact, string catogery, Image img)
+        {
+            MySqlCommand cmd = new MySqlCommand(@"insert into image (id,name,contact,catogery,image) VALUES (@ID,@NAME,@CONTACT,@CATOGERY,@IMG)", connectstr);
+            cmd.Parameters.AddWithValue(@"ID", id);
+            cmd.Parameters.AddWithValue(@"NAME", name);
+            cmd.Parameters.AddWithValue(@"CONTACT", contact);
+            cmd.Parameters.AddWithValue(@"CATOGERY", catogery);
+            byte[] data = imageToByte(img);
+            MySqlParameter blob = new MySqlParameter("@IMG", MySqlDbType.Blob, data.Length);
+            blob.Value = data;
+            cmd.Parameters.Add(blob);
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("data added successfully");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         public void read(string query, int id, string name, DataGridView dg)
         {
             //con.Open();

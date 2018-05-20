@@ -78,11 +78,7 @@ namespace VisitingCard
 
         private void button2_Click(object sender, EventArgs e)
         {
-            pictureBox2.Image=(Bitmap)pictureBox1.Image.Clone();
-            pictureBox2.Image.Save(@"D:/VC.bmp");
-            databaseConnection DB = new databaseConnection();
-            DB.readdata(23);
-
+            var img = pictureBox2.Image.ToString();
             
         }
 

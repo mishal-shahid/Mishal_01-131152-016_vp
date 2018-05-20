@@ -19,7 +19,17 @@ namespace VisitingCard
 
         private void searchCard_Load(object sender, EventArgs e)
         {
-            dataGridView1.AllowUserToAddRows = true;
+            databaseConnection db = new databaseConnection();
+            db.open();
+            try
+            {
+                db.read("SELECT * FROM image Where id=@id", int.Parse(label2.Text), "", dataGridView1);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            db.close();
         }
     }
 }
