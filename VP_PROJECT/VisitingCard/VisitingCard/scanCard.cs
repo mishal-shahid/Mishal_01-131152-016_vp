@@ -72,5 +72,22 @@ namespace VisitingCard
             pictureBox2.Image.Save(@"D:/VC.bmp");
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if(checkBox1.Checked)
+            {
+                textBox2.Text = textBox1.SelectedText;
+            }
+            if (checkBox2.Checked)
+            {
+                textBox3.Text = textBox1.SelectedText;
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            device.Stop();
+        }
+
     }
 }

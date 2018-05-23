@@ -16,5 +16,10 @@ namespace VisitingCard
         {
             InitializeComponent();
         }
+
+        private void searchCard_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
