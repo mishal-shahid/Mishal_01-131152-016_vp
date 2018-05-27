@@ -10,46 +10,42 @@ using System.Windows.Forms;
 
 namespace VisitingCard
 {
-    public partial class signup : Form
+    public partial class searchAll : Form
     {
-        public signup()
+        public searchAll(string text)
         {
             InitializeComponent();
+            label2.Text = text;
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
+            
+            
+            this.Close();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            databaseConnection dc = new databaseConnection();
-            dc.open();
+            databaseConnection db = new databaseConnection();
+            db.open();
             try
             {
-                if (dc.insertdata(int.Parse(textBox2.Text), textBox1.Text, textBox3.Text, textBox4.Text, textBox5.Text))
-                {
-
-                    menu obj = new menu(textBox2.Text);
-                    obj.Show();
-                }
+                db.read("Select * from image where id =@id and name=@name", int.Parse(label2.Text), textBox1.Text, dataGridView1);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            dc.close();
+            db.close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form1 obj = new Form1();
+            
+            searchCard obj = new searchCard(label2.Text);
+            this.Close();
             obj.Show();
         }
     }

@@ -16,27 +16,35 @@ namespace VisitingCard
         {
             InitializeComponent();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
+           
             databaseConnection db = new databaseConnection();
             DataTable dt = new DataTable();
             db.open();
-            if (db.readdata(int.Parse(textBox1.Text), (textBox2.Text))==true)
+            try
             {
-               menu obj = new menu();
-               obj.Show();
+                if (db.readdata(int.Parse(textBox1.Text), (textBox2.Text)) == true)
+                {
+                    menu obj = new menu(textBox1.Text);
+                    obj.Show();
+                }
+                else
+                {
+                    MessageBox.Show("invalid user id or password");
+                }
             }
-            else
-                MessageBox.Show("incorrect userID or Password");
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             db.close();
         }
-
         private void label4_Click(object sender, EventArgs e)
         {
 
         }
-
+        
         private void button2_Click(object sender, EventArgs e)
         {
             signup obj = new signup();
@@ -48,9 +56,21 @@ namespace VisitingCard
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        public void textBox1_TextChanged(object sender, EventArgs e)
         {
-            int.Parse(textBox1.Text);
+            try
+            {
+                int.Parse(textBox1.Text);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -84,11 +84,29 @@
     <Compile Include="scanCard.Designer.cs">
       <DependentUpon>scanCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="searchAll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="searchAll.Designer.cs">
+      <DependentUpon>searchAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="searchByCatogery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="searchByCatogery.Designer.cs">
+      <DependentUpon>searchByCatogery.cs</DependentUpon>
+    </Compile>
     <Compile Include="searchCard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="searchCard.Designer.cs">
       <DependentUpon>searchCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SerachByName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SerachByName.Designer.cs">
+      <DependentUpon>SerachByName.cs</DependentUpon>
     </Compile>
     <Compile Include="signup.cs">
       <SubType>Form</SubType>
@@ -115,8 +133,17 @@
     <EmbeddedResource Include="scanCard.resx">
       <DependentUpon>scanCard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="searchAll.resx">
+      <DependentUpon>searchAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="searchByCatogery.resx">
+      <DependentUpon>searchByCatogery.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="searchCard.resx">
       <DependentUpon>searchCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SerachByName.resx">
+      <DependentUpon>SerachByName.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="signup.resx">
       <DependentUpon>signup.cs</DependentUpon>
