@@ -87,6 +87,8 @@ namespace VisitingCard
         private void button4_Click(object sender, EventArgs e)
         {
             device.Stop();
+            menu obj = new menu();
+            obj.Show();
         }
 
     }
